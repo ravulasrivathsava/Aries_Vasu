@@ -5,11 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve the 'assets' directory
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-app.use('/vendors', express.static(path.join(__dirname, 'vendors')));
+app.use('./assets', express.static(path.join(__dirname, 'assets')));
+app.use('./vendors', express.static(path.join(__dirname, 'vendors')));
 
 // Debugging: Log file requests
-app.use('/assets', (req, res, next) => {
+app.use('./assets', (req, res, next) => {
     console.log(`File requested: ${req.path}`);
     next();
 });
